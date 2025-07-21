@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Icons } from "@/components/icons";
+import { calculateSellerStock } from "@/lib/stock"; 
 
 export default function RootPage() {
   const router = useRouter();

@@ -87,6 +87,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { db } from "@/lib/firebase";
 import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, DocumentData, query, increment } from "firebase/firestore";
 import { mapDocTo } from "@/lib/mappers";
+import { calculateSellerStock, SellerItem } from "@/lib/stock";
 
 // Interfaces
 interface Product {
@@ -137,9 +138,10 @@ type AssignmentCartItem = {
   quantity: number;
 };
 type SaleCartItem = {
-    item: (ReturnType<typeof calculateSellerStock>[number]);
-    quantity: number;
-}
+  item: SellerItem; // Ya asegura que tiene .id
+  quantity: number;
+};
+
 
 
 // Zod Schemas
